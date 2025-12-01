@@ -1,0 +1,27 @@
+describe('Sistema Atrium Gestão | Menu Administração', () => {
+
+   it( '1 - Métricas | Validar Label', () => {
+
+   //Métricas
+
+   cy.viewport(1920, 1080);
+   cy.visit('https://teste-atriumgestao.app.tjpe.gov.br/')
+   cy.get('.alert-link').click()
+   cy.wait(15000)
+   cy.visit('https://teste-atriumgestao.app.tjpe.gov.br/')
+   cy.get(':nth-child(3) > .nav-bar-item > .font-medium').click()
+   cy.get('.open > .dropdown-menu > :nth-child(1) > .dropdown-toggle').click()
+   cy.get('[data-cy="metricsPageHeading"]')
+   .should('contain.text', 'Métricas da aplicação')
+   cy.get('.surface-card > .flex > .p-element')
+    .should('contain.text', 'Atualizar')
+   cy.get('jhi-jvm-memory.col-12 > h4')
+      .should('contain.text', 'Memória')
+    cy.get('jhi-jvm-threads.col-12 > h4')
+    .should('contain.text', 'Threads')
+   cy.get('jhi-metrics-system.col-12 > h4')
+    .should('contain.text', 'System')
+   cy.wait(5000)
+
+   })
+     })
