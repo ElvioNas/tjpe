@@ -65,3 +65,25 @@ cy.viewport(1920, 1080);
        .should('contain.text', 'Nenhuma solicitação encontrada') 
        cy.wait(3000)
   })
+
+it('2 - Consultar Pendências Pessoa Física / Campos Obrigatórios', () => {
+
+    cy.viewport(1920, 1080);
+   //cy.visit('https://homologacao-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+   // cy.visit('https://homologacao-certidoesunificadasadmin.app.tjpe.gov.br/') 
+    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/') 
+    cy.get('.alert-link').click()
+    cy.wait(5000) //Digite o seu CPF e click para confirmar
+    cy.get('.inline-block')
+   .should('contain.text', 'Emissão de Certidões - Administração')
+    cy.get('#home-logged-message')
+   .should('contain.text', 'Elvio Ferreira do Nascimento')
+      cy.wait(2000)
+    cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .pi-angle-down').click()
+    cy.get(':nth-child(2) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-toggle > .font-medium').click()
+cy.get('[data-cy="documento"]').click();
+cy.get('[data-cy="documento"]').type('123.456.789');
+cy.get('div.bg-white').click();
+cy.get('small.p-error').should('have.text', ' CPF inválido. ');
+})
