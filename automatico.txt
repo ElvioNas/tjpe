@@ -25,3 +25,43 @@ describe('Sistema Atrium Gestão | Menu Administração', () => {
 
    })
      })
+
+describe('Administração Certidões Criminais', () => {
+
+/*beforeEach(() => { 
+
+  cy.login() 
+
+     }) */
+
+  it('1 - Consultar Pendências Pessoa Física / Validação de Label', () => {
+   
+cy.viewport(1920, 1080);
+    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+    cy.get('.alert-link').click()
+    cy.wait(5000) //Digite o seu CPF e click para confirmar
+    cy.get('#home-logged-message')
+      .should('contain.text', 'Elvio Ferreira do Nascimento')
+    cy.wait(2000)
+    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+    cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-toggle > .font-medium').click()
+    cy.wait(2000) 
+    cy.get('.font-bold > .inline-block')
+      .should('contain.text', 'Emissão de Certidões - Administração')
+    cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .font-medium')
+      .should('contain.text', 'Certidões Cíveis')
+    cy.get(':nth-child(3) > .dropdown > .nav-bar-item > .font-medium')
+      .should('contain.text', 'Outras Certidões')
+    cy.get('.p-breadcrumb-list')
+      .should('contain.text', 'Solicitações')
+    cy.get('h3')
+       .should('contain.text','Consultar')
+    cy.get('.p-button-label')
+       .should('contain.text', 'Consultar')
+    cy.get('.text-primary > span')
+       .should('contain.text', 'Limpar')
+    cy.get('#no-result > .block')
+       .should('contain.text', 'Nenhuma solicitação encontrada') 
+       cy.wait(3000)
+  })
