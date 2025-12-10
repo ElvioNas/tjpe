@@ -27,7 +27,7 @@ it('1 - Minhas Avaliações / Validação de Label', () => {
   //  cy.get('timesicon[pc13=""] svg.p-icon').click();
     //cy.get('timesicon.p-component svg.p-icon').click();
 })
-it.only('2 - Realizar avaliação / Validação de Label', () => {
+it('2 - Realizar avaliação / Validação de Label', () => {
     cy.viewport(1920, 1080);
     cy.visit('https://avaliacaoestagioprobatorio.teste.svc.tjpe.jus.br/')
     //cy.get('a.alert-link').click();

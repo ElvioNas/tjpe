@@ -171,7 +171,7 @@ it('6 - Gerenciar tarefas de produtividade / Pesquisar com Filtro', () => {
     
 })
 
-it.only('7 - Gerenciar tarefas de produtividade / Pesquisar com Filtro e Visualizar', () => {
+it('7 - Gerenciar tarefas de produtividade / Pesquisar com Filtro e Visualizar', () => {
     cy.viewport(1920, 1080);
     cy.visit('https://avaliacaoestagioprobatorio.teste.svc.tjpe.jus.br/')
       
