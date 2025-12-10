@@ -2,11 +2,7 @@ describe('Outras Certidões', () => {
   it('1 - Consultar Pendências Fins Eleitorias / Validação de Label', () => {
 
 /*beforeEach(() => { 
-
-
   cy.login() 
-
-
      }) */
 
     cy.viewport(1920, 1080);
