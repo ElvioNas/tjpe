@@ -36,6 +36,7 @@ cy.get('#no-result span.block').should('have.text', 'Nenhuma solicitação encon
     
 it('2 - Consultar Pendências Pessoa Física / Campos Obrigatórios', () => {
 
+  //Campos Obrigatórios
     cy.viewport(1920, 1080);
    //cy.visit('https://homologacao-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
    // cy.visit('https://homologacao-certidoesunificadasadmin.app.tjpe.gov.br/') 
