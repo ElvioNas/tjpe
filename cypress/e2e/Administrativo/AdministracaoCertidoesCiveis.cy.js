@@ -9,6 +9,8 @@ describe('Administração Certidões Cíveis', () => {
 it('1 - Consultar Pendências Pessoa Física / Validação de Label', () => {
 
 cy.viewport(1920, 1080);
+cy.viewport(1920, 1080);
+cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
 cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
 cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/') 
 cy.visit
