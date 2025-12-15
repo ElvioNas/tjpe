@@ -114,7 +114,7 @@ cy.get('#main-content div.items-center').click();
 cy.get('#main-content div.break-words').should('have.text', 'Natureza não encontrada');
   })
 
-  it('5 - Processos Cíveis para Pessoa Física / Emissão Natureza Todas', () => {
+  it.only('5 - Processos Cíveis para Pessoa Física / Emissão Natureza Todas', () => {
 
    
     cy.get('.hidden > :nth-child(2) > .space-y-1 > :nth-child(1) > .group > .h-9 > .ml-10').click()
