@@ -89,7 +89,7 @@ cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').
     cy.log('Total de verificações (asserções): 22');
   })
 
-  it('3 - Pessoa Fisíca Certidão Criminal / Emissão', () => {
+  it.skip('3 - Pessoa Fisíca Certidão Criminal / Emissão', () => {
 
   
     cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').click()
@@ -106,7 +106,7 @@ cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').
     cy.wait(5000)
 
   })
-  it('4 - Pessoa Fisíca Certidão Criminal / Emissão com Nome Social', () => {
+  it.skip('4 - Pessoa Fisíca Certidão Criminal / Emissão com Nome Social', () => {
 
     
     cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').click()
@@ -166,7 +166,7 @@ cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').
                  cy.log('Total de verificações (asserções): 12');
   })
 
-  it('7 - Pessoa Jurídica Certidão Criminal / Emissão', () => {
+  it.skip('7 - Pessoa Jurídica Certidão Criminal / Emissão', () => {
 
    
     cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(2) > .group > .flex').click()

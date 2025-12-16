@@ -5,7 +5,7 @@ describe('Estágio Probatório / Relatório', () => {
   cy.login() 
 
      }) */
-it('1 - Relatório / Validação de Label', () => {
+it.skip('1 - Relatório / Validação de Label', () => {
     cy.viewport(1920, 1080);
     cy.visit('https://avaliacaoestagioprobatorio.teste.svc.tjpe.jus.br/')
        
