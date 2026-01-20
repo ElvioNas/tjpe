@@ -117,30 +117,31 @@ cy.get('button.p-button').click();
 
 
   it.skip('6 - Consultar Pendências Pessoa Física / Emissão Sem Pendência para o CPF informado', () => {
-
-cy.viewport(1920, 1080);
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-    cy.get('.alert-link').click()
-    cy.wait(5000) //Digite o seu CPF e click para confirmar
-    cy.get('#home-logged-message')
-      .should('contain.text', 'Elvio Ferreira do Nascimento')
-    cy.wait(2000)
-    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
-    cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-toggle > .font-medium').click() 
-    cy.get('.font-bold > .inline-block')
-      .should('contain.text', 'Emissão de Certidões - Administração')
-    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium')
-      .should('contain.text', 'Certidões Criminais')
-    cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .font-medium')
-      .should('contain.text', 'Certidões Cíveis')
-
- cy.wait(3000)
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('005.874.340-58');
-cy.get('span.p-button-label').click();
-cy.get('div.flex.ng-star-inserted div.items-center').click();
-cy.get('div.break-words').should('have.text', 'Não foram encontradas solicitações para o CPF informado.');
+    
+    cy.viewport(1920, 1080);
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+        cy.get('.alert-link').click()
+        cy.wait(5000) //Digite o seu CPF e click para confirmar
+        cy.get('#home-logged-message')
+          .should('contain.text', 'Elvio Ferreira do Nascimento')
+        cy.wait(2000)
+        cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+        cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-toggle > .font-medium').click() 
+        cy.get('.font-bold > .inline-block')
+          .should('contain.text', 'Emissão de Certidões - Administração')
+        cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium')
+          .should('contain.text', 'Certidões Criminais')
+        cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .font-medium')
+          .should('contain.text', 'Certidões Cíveis')
+    
+     cy.wait(3000)
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('005.874.340-58');
+    cy.get('span.p-button-label').click();
+    cy.get('div.flex.ng-star-inserted div.items-center').click();
+    //cy.get('div.break-words').should('have.text', 'Não existe solicitação na WEB.');
+    cy.get('div.break-words').should('have.text', 'Não existe solicitação realizada na WEB.');
   })
 
   it.skip('7 - Consultar Pendências Pessoa Física / Emissão Certidão Negativa', () => {
@@ -172,37 +173,41 @@ cy.get('span.p-button-label').click();
   })
 
    it.skip('8 - Consultar Pendências Pessoa Física / Emissão Certidão Negativa sem Justificativa', () => {
-
-cy.viewport(1920, 1080);
-cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
-cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-cy.get('.alert-link').click()
-cy.wait(5000) //Digite o seu CPF e click para confirmar
-cy.get('#home-logged-message')
- .should('contain.text', 'Elvio Ferreira do Nascimento')
-cy.wait(2000)
-cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
-cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-toggle > .font-medium').click() 
-cy.get('.font-bold > .inline-block')
-.should('contain.text', 'Emissão de Certidões - Administração')
-cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium')
-.should('contain.text', 'Certidões Criminais')
-cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .font-medium')
-.should('contain.text', 'Certidões Cíveis')
-    //Antes de gerar esse cenário é preciso gerar uma certidão criminal com pendências
-    //Nome da parte FERNANDO LUIZ MIRANDA RAMOS
-    //Nome da mãe  - certidao_criminal_pessoa_fisica_parte_judwin_1g
-
- cy.wait(3000)
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('542.735.284-87');
-cy.get('span.p-button-label').click();
-cy.get('[data-cy="entityTable"] td:nth-child(7)').click();
-cy.get('#pn_id_8-table tr:nth-child(1) td:nth-child(1) p-checkbox.p-element div.p-checkbox div.p-checkbox-box').click();
-cy.get('div.flex.gap-2 button:nth-child(1)').click();
-cy.get('div.justify-content-end').click();
-cy.get('small.p-error').click();
-cy.get('small.p-error').should('have.text', '\n      A justificativa deve ter pelo menos 1 caractere\n    ');
+    
+    cy.viewport(1920, 1080);
+    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+    cy.get('.alert-link').click()
+    cy.wait(5000) //Digite o seu CPF e click para confirmar
+    cy.get('#home-logged-message')
+     .should('contain.text', 'Elvio Ferreira do Nascimento')
+    cy.wait(2000)
+    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+    cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-toggle > .font-medium').click() 
+    cy.get('.font-bold > .inline-block')
+    .should('contain.text', 'Emissão de Certidões - Administração')
+    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium')
+    .should('contain.text', 'Certidões Criminais')
+    cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .font-medium')
+    .should('contain.text', 'Certidões Cíveis')
+        //Antes de gerar esse cenário é preciso gerar uma certidão criminal com pendências
+        //Nome da parte FERNANDO LUIZ MIRANDA RAMOS
+        //Nome da mãe  - certidao_criminal_pessoa_fisica_parte_judwin_1g
+    
+     cy.wait(3000)
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('542.735.284-87');
+    /*
+    cy.get('span.p-button-label').click();
+    cy.get('[data-cy="entityTable"] td:nth-child(7)').click();
+    cy.get('#pn_id_8-table tr:nth-child(1) td:nth-child(1) p-checkbox.p-element div.p-checkbox div.p-checkbox-box').click();
+    cy.get('div.flex.gap-2 button:nth-child(1)').click();
+    cy.get('div.justify-content-end').click();
+    cy.get('small.p-error').click();
+    cy.get('small.p-error').should('have.text', '\n      A justificativa deve ter pelo menos 1 caractere\n    ');
+    */
+    cy.get('span.p-button-label').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(1) td:nth-child(2) span.font-bold').click();
    })
 
 
@@ -231,11 +236,11 @@ cy.viewport(1920, 1080);
 cy.get('[data-cy="documento"]').click();
 cy.get('[data-cy="documento"]').type('043.919.924-77');
 cy.get('span.p-button-label').click();
-cy.get('[data-cy="entityTable"] td:nth-child(6)').click();
-cy.get('div.flex.gap-2 button:nth-child(2)').click();
-cy.get('[name="justificativa"]').click();
-cy.get('[name="justificativa"]').type('testes de sistema');
-cy.get('p-button[label="Emitir"] button.p-ripple').click();
+//cy.get('[data-cy="entityTable"] td:nth-child(6)').click();
+//cy.get('div.flex.gap-2 button:nth-child(2)').click();
+//cy.get('[name="justificativa"]').click();
+//cy.get('[name="justificativa"]').type('testes de sistema');
+//cy.get('p-button[label="Emitir"] button.p-ripple').click();
   })
 
   it.skip('10 - Consultar Pendências Pessoa Física / Emissão Certidão Negativa - Nada consta em tramitação sem Justificativa', () => {
@@ -262,42 +267,43 @@ cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .font-medium')
 cy.get('[data-cy="documento"]').click();
 cy.get('[data-cy="documento"]').type('043.919.924-77');
 cy.get('span.p-button-label').click();
-cy.get('[data-cy="entityTable"] td:nth-child(2)').click();
-cy.get('div.flex.gap-2 button:nth-child(2)').click();
-cy.get('[name="justificativa"]').type('1');
-cy.get('p-button[label="Emitir"] button.p-ripple').click();
+//cy.get('[data-cy="entityTable"] td:nth-child(2)').click();
+//cy.get('div.flex.gap-2 button:nth-child(2)').click();
+//cy.get('[name="justificativa"]').type('1');
+//cy.get('p-button[label="Emitir"] button.p-ripple').click();
   })
 
   it.skip('11 - Consultar Pendências Pessoa Física / Emissão Certidão Negativa - Certidão Positiva', () => {
-
-cy.viewport(1920, 1080);
-
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-    cy.get('.alert-link').click()
-    cy.wait(5000) //Digite o seu CPF e click para confirmar
-    cy.get('#home-logged-message')
-      .should('contain.text', 'Elvio Ferreira do Nascimento')
-    cy.wait(2000)
-    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
-    cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-toggle > .font-medium').click()
-    cy.get('.font-bold > .inline-block')
-      .should('contain.text', 'Emissão de Certidões - Administração')
-    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium')
-      .should('contain.text', 'Certidões Criminais')
-    cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .font-medium')
-      .should('contain.text', 'Certidões Cíveis')
-    //Antes de gerar esse cenário é preciso gerar uma certidão criminal com pendências
-    //Nome da parte EUGÊNIO VALDEMAR DA SILVA - MÃE MARIA DA PENHA BRITO DA SILVA - certidao_criminal_pessoa_fisica_parte_judwin_1g
-    //Nome da mãe MARIA DA PENHA BRITO DA SILVA
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('064.447.914-05');
-cy.get('button.p-button').click();
-cy.get('[data-cy="entityTable"] td:nth-child(2) span.font-bold').click();
-cy.get('#pn_id_8-table td:nth-child(1) div.p-checkbox-box').click();
-cy.get('button:nth-child(3)').click();
-cy.get('[name="justificativa"]').type('teste de sistema');
-cy.get('p-button[label="Emitir"] button.p-ripple').click();
+    
+    cy.viewport(1920, 1080);
+    
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+        cy.get('.alert-link').click()
+        cy.wait(5000) //Digite o seu CPF e click para confirmar
+        cy.get('#home-logged-message')
+          .should('contain.text', 'Elvio Ferreira do Nascimento')
+        cy.wait(2000)
+        cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+        cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-toggle > .font-medium').click()
+        cy.get('.font-bold > .inline-block')
+          .should('contain.text', 'Emissão de Certidões - Administração')
+        cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium')
+          .should('contain.text', 'Certidões Criminais')
+        cy.get(':nth-child(2) > .dropdown > .nav-bar-item > .font-medium')
+          .should('contain.text', 'Certidões Cíveis')
+        //Antes de gerar esse cenário é preciso gerar uma certidão criminal com pendências
+        //Nome da parte EUGÊNIO VALDEMAR DA SILVA - MÃE MARIA DA PENHA BRITO DA SILVA - certidao_criminal_pessoa_fisica_parte_judwin_1g
+        //Nome da mãe MARIA DA PENHA BRITO DA SILVA
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('064.447.914-05');
+    cy.get('button.p-button').click();
+    //cy.get('[data-cy="entityTable"] td:nth-child(2) span.font-bold').click();
+    //cy.get('#pn_id_8-table td:nth-child(1) div.p-checkbox-box').click();
+    //cy.get('button:nth-child(3)').click();
+    //cy.get('[name="justificativa"]').type('teste de sistema');
+    //cy.get('p-button[label="Emitir"] button.p-ripple').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(1) td:nth-child(6)').click();
   })
  
   
@@ -329,11 +335,11 @@ cy.get('[data-cy="documento"]').click();
 cy.get('[data-cy="documento"]').type('064.447.914-05');
 cy.get('span.p-button-label').click();
 cy.get('[data-cy="entityTable"] td:nth-child(3)').click();
-cy.get('#pn_id_8-table td:nth-child(1) div.p-checkbox-box').click();
-cy.get('div.bg-white.ng-star-inserted').click();
-cy.get('button:nth-child(3)').click();
-cy.get('[name="justificativa"]').type('urtyurtyu');
-cy.get('p-button[label="Emitir"] span.p-button-label').click();
+//cy.get('#pn_id_8-table td:nth-child(1) div.p-checkbox-box').click();
+//cy.get('div.bg-white.ng-star-inserted').click();
+//cy.get('button:nth-child(3)').click();
+//cy.get('[name="justificativa"]').type('urtyurtyu');
+//cy.get('p-button[label="Emitir"] span.p-button-label').click();
   })
  
 
@@ -414,134 +420,168 @@ cy.get('div.validation-messages').should('have.text', '\n         CNPJ inválido
   })
 
   it.skip('16 - Consultar Pendências Pessoa Jurídica / Emissão Sem Pendência', () => {
-
-cy.viewport(1920, 1080);
-
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-    cy.get('.alert-link').click()
-    cy.wait(5000) //Digite o seu CPF e click para confirmar
-    cy.get('.inline-block')
-      .should('contain.text', 'Emissão de Certidões - Administração')
-    cy.get('#home-logged-message')
-      .should('contain.text', 'Elvio Ferreira do Nascimento')
-    cy.wait(2000)
-    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
-    cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
-    /// PARA ESSE CENÁRIO É PRECISO INFORMAR UM CNPJ QUE NÃO EXISTE
-     cy.wait(3000)
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('32.345.584/0001-80');
-cy.get('span.p-button-label').click();
-cy.get('div.break-words').click();
-cy.get('div.break-words').should('have.text', 'Não foram encontradas solicitações para o CNPJ informado.');
+    
+    cy.viewport(1920, 1080);
+    
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+        cy.get('.alert-link').click()
+        cy.wait(5000) //Digite o seu CPF e click para confirmar
+        cy.get('.inline-block')
+          .should('contain.text', 'Emissão de Certidões - Administração')
+        cy.get('#home-logged-message')
+          .should('contain.text', 'Elvio Ferreira do Nascimento')
+        cy.wait(2000)
+        cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+        cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
+        /// PARA ESSE CENÁRIO É PRECISO INFORMAR UM CNPJ QUE NÃO EXISTE
+         cy.wait(3000)
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('32.345.584/0001-80');
+    cy.get('span.p-button-label').click();
+    cy.get('div.break-words').click();
+    //cy.get('div.break-words').should('have.text', 'Não foram encontradas solicitações para o CNPJ informado.');
+    cy.get('div.break-words').click();
+    cy.get('div.break-words').click();
+    cy.get('div.break-words').should('have.text', 'Não existe solicitação realizada na WEB.');
   })
 
   it.skip('17 - Consultar Pendências Pessoa Jurídica / Emissão', () => {
-
-cy.viewport(1920, 1080);
-
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-    cy.get('.alert-link').click()
-    cy.wait(5000) //Digite o seu CPF e click para confirmar
-    cy.get('.inline-block')
-      .should('contain.text', 'Emissão de Certidões - Administração')
-    cy.get('#home-logged-message')
-      .should('contain.text', 'Elvio Ferreira do Nascimento')
-    cy.wait(2000)
-    cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
-    cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
-    /// **********PARA ESSE CENÁRIO É PRECISO CRIAR UMA CERTIDÃO PARA PESSOA JURÍDICA EM CERTIDÕES CRIMINAIS COM INFORMAÇÕES FAKER
-
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('41.653.945/0001-90');
-cy.get('span.p-button-label').click();
-cy.get('[data-cy="entityTable"] td:nth-child(3)').click();
+    
+    cy.viewport(1920, 1080);
+    
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+        cy.get('.alert-link').click()
+        cy.wait(5000) //Digite o seu CPF e click para confirmar
+        cy.get('.inline-block')
+          .should('contain.text', 'Emissão de Certidões - Administração')
+        cy.get('#home-logged-message')
+          .should('contain.text', 'Elvio Ferreira do Nascimento')
+        cy.wait(2000)
+        cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+        cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
+        /// **********PARA ESSE CENÁRIO É PRECISO CRIAR UMA CERTIDÃO PARA PESSOA JURÍDICA EM CERTIDÕES CRIMINAIS COM INFORMAÇÕES FAKER
+    
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('41.653.945/0001-90');
+    //cy.get('span.p-button-label').click();
+    //cy.get('[data-cy="entityTable"] td:nth-child(3)').click();
+    cy.get('span.p-button-label').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(1) span.p-button-label').click();
   })
 
   it.skip('18 - Consultar Pendências Pessoa Jurídica / Emissão sem Justificativa', () => {
-
-cy.viewport(1920, 1080);
-  cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
-  cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-  cy.get('.alert-link').click()
-  cy.wait(5000) //Digite o seu CPF e click para confirmar
-  cy.get('.inline-block')
-  .should('contain.text', 'Emissão de Certidões - Administração')
-  cy.get('#home-logged-message')
-  .should('contain.text', 'Elvio Ferreira do Nascimento')
-  cy.wait(2000)
-  cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
-  cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
-
-    /// **********PARA ESSE CENÁRIO É PRECISO CRIAR UMA CERTIDÃO PARA PESSOA JURÍDICA EM CERTIDÕES CRIMINAIS COM INFORMAÇÕES FAKER
-
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('41.653.945/0001-90');
-cy.get('span.p-button-label').click();
-cy.get('[data-cy="entityTable"] td:nth-child(3)').click();
-cy.get('div.flex.gap-2 button:nth-child(1)').click();
-cy.get('div.justify-content-end').click();
-cy.get('[name="justificativa"]').click();
-cy.get('[name="justificativa"]').type('123456');
-cy.get('[name="justificativa"]').click();
-cy.get('[name="justificativa"]').clear();
-cy.get('div.p-dialog-content').click();
-cy.get('small.p-error').should('have.text', '\n      A justificativa deve ter pelo menos 1 caractere\n    ');
+    
+    cy.viewport(1920, 1080);
+      cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+      cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+      cy.get('.alert-link').click()
+      cy.wait(5000) //Digite o seu CPF e click para confirmar
+      cy.get('.inline-block')
+      .should('contain.text', 'Emissão de Certidões - Administração')
+      cy.get('#home-logged-message')
+      .should('contain.text', 'Elvio Ferreira do Nascimento')
+      cy.wait(2000)
+      cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+      cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
+    
+        /// **********PARA ESSE CENÁRIO É PRECISO CRIAR UMA CERTIDÃO PARA PESSOA JURÍDICA EM CERTIDÕES CRIMINAIS COM INFORMAÇÕES FAKER
+    
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('41.653.945/0001-90');
+    cy.get('span.p-button-label').click();
+    //cy.get('[data-cy="entityTable"] td:nth-child(3)').click();
+    //cy.get('div.flex.gap-2 button:nth-child(1)').click();
+    //cy.get('div.justify-content-end').click();
+    //cy.get('[name="justificativa"]').click();
+    //cy.get('[name="justificativa"]').type('123456');
+    //cy.get('[name="justificativa"]').click();
+    //cy.get('[name="justificativa"]').clear();
+    //cy.get('div.p-dialog-content').click();
+    //cy.get('small.p-error').should('have.text', '\n      A justificativa deve ter pelo menos 1 caractere\n    ');
+    cy.get('div.break-words').should('have.text', 'Não há solicitação pendente para o CNPJ informado.');
   })
 
 it.skip('19 - Consultar Pendências Pessoa Jurídica / Emissão Nada Consta em Tramitação sem Justificativa', () => {
-
-cy.viewport(1920, 1080);
-  cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
-  cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-  cy.get('.alert-link').click()
-  cy.wait(5000) //Digite o seu CPF e click para confirmar
-  cy.get('.inline-block')
-  .should('contain.text', 'Emissão de Certidões - Administração')
-  cy.get('#home-logged-message')
-  .should('contain.text', 'Elvio Ferreira do Nascimento')
-  cy.wait(2000)
-  cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
-  cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('24.417.065/0001-03');
-cy.get('span.p-button-label').click();
-cy.get('[data-cy="entityTable"] td:nth-child(3)').click();
-cy.get('div.flex.gap-2 button:nth-child(2)').click();
-cy.get('[name="justificativa"]').type('jghjhgfjhgfj');
-cy.get('p-button[label="Emitir"] span.p-button-label').click();
+    
+    cy.viewport(1920, 1080);
+      cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+      cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+      cy.get('.alert-link').click()
+      cy.wait(5000) //Digite o seu CPF e click para confirmar
+      cy.get('.inline-block')
+      .should('contain.text', 'Emissão de Certidões - Administração')
+      cy.get('#home-logged-message')
+      .should('contain.text', 'Elvio Ferreira do Nascimento')
+      cy.wait(2000)
+      cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+      cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('24.417.065/0001-03');
+    cy.get('span.p-button-label').click();
+    //cy.get('[data-cy="entityTable"] td:nth-child(3)').click();
+    //cy.get('div.flex.gap-2 button:nth-child(2)').click();
+    //cy.get('[name="justificativa"]').type('jghjhgfjhgfj');
+    //cy.get('p-button[label="Emitir"] span.p-button-label').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(1) td:nth-child(3)').click();
+    cy.get('#pn_id_8-table tr:nth-child(1) td:nth-child(1) p-checkbox.p-element div.p-checkbox div.p-checkbox-box').click();
+    cy.get('#pn_id_8-table tr:nth-child(1) span.font-bold').click();
+    cy.get('#pn_id_8-table svg.p-checkbox-icon').click();
+    cy.get('#pn_id_8-table tr:nth-child(2) td.whitespace-nowrap').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(2) td:nth-child(3)').click();
+    cy.get('#pn_id_8-table tr:nth-child(1) td:nth-child(1) p-checkbox.p-element div.p-checkbox div.p-checkbox-box').click();
+    cy.get('div.flex.ng-star-inserted button:nth-child(2)').click();
+    cy.get('div.justify-content-end').click();
+    //cy.get('div.p-dialog-content').click();
+    //cy.get('small.p-error').should('have.text', '\n      A justificativa deve ter pelo menos 1 caractere\n    ');
+    
 })
 
 it.skip('20 - Consultar Pendências Pessoa Jurídica / Emissão Certidão Positiva sem Justificativa', () => {
-
-cy.viewport(1920, 1080);
-  cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
-  cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-  cy.get('.alert-link').click()
-  cy.wait(5000) //Digite o seu CPF e click para confirmar
-  cy.get('.inline-block')
-  .should('contain.text', 'Emissão de Certidões - Administração')
-  cy.get('#home-logged-message')
-  .should('contain.text', 'Elvio Ferreira do Nascimento')
-  cy.wait(2000)
-  cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
-  cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('24.417.065/0001-03');
-cy.get('span.p-button-label').click();
-cy.get('[data-cy="entityTable"] td:nth-child(1)').click();
-cy.get('#pn_id_8-table tr:nth-child(1) td:nth-child(1) p-checkbox.p-element div.p-checkbox div.p-checkbox-box').click();
-cy.get('div.flex.gap-2 button:nth-child(1)').click();
-cy.get('[name="justificativa"]').click();
-cy.get('[name="justificativa"]').type('12345');
-cy.get('[name="justificativa"]').click();
-cy.get('div.p-dialog-mask').click();
-cy.get('[name="justificativa"]').clear();
-cy.get('div.p-dialog-content').click();
-cy.get('small.p-error').should('have.text', '\n      A justificativa deve ter pelo menos 1 caractere\n    ');
+    
+    cy.viewport(1920, 1080);
+      cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+      cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+      cy.get('.alert-link').click()
+      cy.wait(5000) //Digite o seu CPF e click para confirmar
+      cy.get('.inline-block')
+      .should('contain.text', 'Emissão de Certidões - Administração')
+      cy.get('#home-logged-message')
+      .should('contain.text', 'Elvio Ferreira do Nascimento')
+      cy.wait(2000)
+      cy.get(':nth-child(1) > .dropdown > .nav-bar-item > .font-medium').click()
+      cy.get(':nth-child(1) > .dropdown > .dropdown-menu > :nth-child(2) > .dropdown-toggle > .font-medium').click() 
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('24.417.065/0001-03');
+    cy.get('span.p-button-label').click();
+    //cy.get('[data-cy="entityTable"] td:nth-child(1)').click();
+    //cy.get('#pn_id_8-table tr:nth-child(1) td:nth-child(1) p-checkbox.p-element div.p-checkbox div.p-checkbox-box').click();
+    //cy.get('div.flex.gap-2 button:nth-child(1)').click();
+    //cy.get('[name="justificativa"]').click();
+    //cy.get('[name="justificativa"]').type('12345');
+    //cy.get('[name="justificativa"]').click();
+    //cy.get('div.p-dialog-mask').click();
+    //cy.get('[name="justificativa"]').clear();
+    //cy.get('div.p-dialog-content').click();
+    //cy.get('small.p-error').should('have.text', '\n      A justificativa deve ter pelo menos 1 caractere\n    ');
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(1) td:nth-child(3)').click();
+    cy.get('#pn_id_8-table tr:nth-child(1) td.whitespace-nowrap').click();
+    cy.get('#pn_id_8-table tr:nth-child(2) td.whitespace-nowrap').click();
+    cy.get('#pn_id_8-table tr:nth-child(2) div.p-checkbox-box').click();
+    cy.get('#pn_id_8-table tr:nth-child(2) td:nth-child(3)').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(2) td:nth-child(3)').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(2) td:nth-child(1)').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(3) td:nth-child(1)').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(5) td:nth-child(2)').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(1) span.font-bold').click();
+    cy.get('#pn_id_8-table tr:nth-child(3) span.font-bold').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(9) td:nth-child(2)').click();
+    cy.get('#pn_id_8-table tr:nth-child(1) td.whitespace-nowrap').click();
+    cy.get('#pn_id_8-table tr:nth-child(4) td:nth-child(3)').click();
+    cy.get('#pn_id_8-table tr:nth-child(6) div.p-checkbox-box').click();
+    cy.get('div.flex.ng-star-inserted button:nth-child(3)').click();
 })
 
 
@@ -735,8 +775,8 @@ cy.get('div.ng-star-inserted > div.justify-end > div.items-center > a.underline 
     cy.get('.justify-end > .flex > .p-component').click() 
     cy.get('[data-cy="entityTable"] > :nth-child(1) > a').click()
     cy.wait(5000)  
-    cy.get('.p-ripple').click()
-     cy.wait(3000)
+    //cy.get('.p-ripple').click()
+    // cy.wait(3000)
    
   
   })

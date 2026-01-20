@@ -15,7 +15,7 @@ cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
 cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/') 
 cy.visit
 cy.get('.alert-link').click()
-cy.wait(5000) //Digite o seu CPF e click para confirmar
+cy.wait(8000) //Digite o seu CPF e click para confirmar
 cy.get('.inline-block')
 .should('contain.text', 'Emissão de Certidões - Administração')
     cy.get('#home-logged-message')

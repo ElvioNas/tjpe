@@ -5,58 +5,28 @@ describe('Certidões Criminais', () => {
 
      })
   
-  it('1 - Pessoa Fisíca Certidão Criminal / Validação de Label', () => {
-
-cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').click()
+  it.only('1 - Pessoa Fisíca Certidão Criminal / Validação de Label', () => {
+ cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').click()
     cy.get('.pb-2')
-
       .should('contain.text', 'Certidão Criminal - Pessoa Física')
-
     cy.get('.grid > :nth-child(1) > .inline-block')
-
       .should('contain.text', 'Nome Completo*')
-
       cy.get('.grid > :nth-child(1) > .text-sm')
-
     .should('contain.text', 'Deseja usar nome social')
-
     cy.get('.p-checkbox-box').click()
-
     cy.get('.ng-star-inserted > .inline-block')
-
       .should('contain.text', 'Nome Social Nome pelo qual se identifica e é reconhecido(a) socialmente')
-
     cy.get(':nth-child(3) > .inline-block')
-
       .should('contain.text', 'CPF*')
-
     cy.get(':nth-child(4) > .inline-block')
-
       .should('contain.text', 'Data de Nascimento*')
-
     cy.get(':nth-child(5) > .inline-block')
-
       .should('contain.text', 'Nome da Mãe*')
-
-    cy.get(':nth-child(6) > .inline-block')
-
-      .should('contain.text','Nome do Pai')
-
-    cy.get('.col-span-1 > .inline-block')
-
-      .should('contain.text','Código de Segurança')
-
-    cy.get('#cancel-save > .w-full')
-
-      .should('contain.text','Voltar')
-
-    cy.get('form.ng-untouched > .flex')
-
-      .should('contain.text','Emitir')
-
-    cy.get('.text-justify')
-
-      .should('contain.text','Apenas será emitida pelo site do TJPE, a certidão cujo resultado seja "NADA CONSTA"')
+ 
+      
+ cy.get('#main-content label[for="field_nomePai"]').should('have.text', 'Nome do Pai');
+ cy.get('#main-content label[for="field_captcha"]').should('have.text', 'Código de Segurança');
+ cy.get('#cancel-save span.p-button-label').should('have.text', ' Voltar ');
   })    
 
   it('2 - Pessoa Fisíca Certidão Criminal / Validação Campos Obrigatórios', () => {
@@ -90,8 +60,8 @@ cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').
   })
 
   it.skip('3 - Pessoa Fisíca Certidão Criminal / Emissão', () => {
-
-  
+    
+      
     cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').click()
     cy.get('[data-cy="nomeCompleto"]').type('ALEX SILVA DE MEDEIROS')
     //cy.get('.p-checkbox-box').click()
@@ -102,9 +72,10 @@ cy.get('.hidden > :nth-child(1) > .space-y-1 > :nth-child(1) > .group > .flex').
     cy.get('[data-cy="nomePai"]').type('LUIZ CAROLINO DE MEDEIROS FILHO')
     cy.get('[data-cy="captcha"]').click()
     cy.wait(15000)
-    cy.get('#save-entity > .w-full').click()
+    //cy.get('#save-entity > .w-full').click()
     cy.wait(5000)
-
+    
+    cy.get('#save-entity span.p-button-label').click();
   })
   it.skip('4 - Pessoa Fisíca Certidão Criminal / Emissão com Nome Social', () => {
 

@@ -160,30 +160,38 @@ cy.get('a.underline span').click();
 })
 
 it.skip('8 - Consultar Pendências Fins Eleitorais / Emissão Certidão Negativa - Nada consta', () => {
-
-cy.viewport(1920, 1080);
-
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-    cy.get('.alert-link').click()
-    cy.wait(10000) //Digite o seu CPF e click para confirmar
-    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
-    cy.get('#home-logged-message')
-      .should('contain.text', 'Elvio Ferreira do Nascimento')
-    cy.wait(2000)
-    cy.get('[data-cy="navbar"] > .font-bold')
-      .should('contain.text', 'Emissão de Certidões - Administração')
-    cy.get(':nth-child(3) > .dropdown > .nav-bar-item > .pi-angle-down').click()
-    cy.get(':nth-child(3) > .dropdown > .dropdown-menu > .padding-li-item > .dropdown-toggle > .font-medium').click()
-    //Para realizar esse cenário é necessário antes gerar uma certidão eleitoral - certidao_fins_eleitorais_processo_dw_fins_eleitorais
-    //CPF - 31214983049
-    //Nome - pereira de oliveira silva santos
-cy.get('[data-cy="documento"]').click();
-cy.get('[data-cy="documento"]').type('312.149.830-49');
-cy.get('span.p-button-label').click();
-cy.get('tr[data-cy="entityTable"]:nth-of-type(4) td:nth-child(5)').click();
-cy.get('div.flex.gap-2 button:nth-child(1)').click();
-cy.get('[name="justificativa"]').type('asrfweqreqwrwer');
-cy.get('p-button[label="Emitir"] span.p-button-label').click();
+    
+    cy.viewport(1920, 1080);
+    
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+        cy.get('.alert-link').click()
+        cy.wait(10000) //Digite o seu CPF e click para confirmar
+        cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
+        cy.get('#home-logged-message')
+          .should('contain.text', 'Elvio Ferreira do Nascimento')
+        cy.wait(2000)
+        cy.get('[data-cy="navbar"] > .font-bold')
+          .should('contain.text', 'Emissão de Certidões - Administração')
+        cy.get(':nth-child(3) > .dropdown > .nav-bar-item > .pi-angle-down').click()
+        cy.get(':nth-child(3) > .dropdown > .dropdown-menu > .padding-li-item > .dropdown-toggle > .font-medium').click()
+        //Para realizar esse cenário é necessário antes gerar uma certidão eleitoral - certidao_fins_eleitorais_processo_dw_fins_eleitorais
+        //CPF - 31214983049
+        //Nome - pereira de oliveira silva santos
+    cy.get('[data-cy="documento"]').click();
+    cy.get('[data-cy="documento"]').type('312.149.830-49');
+    cy.get('span.p-button-label').click();
+    //cy.get('tr[data-cy="entityTable"]:nth-of-type(4) td:nth-child(5)').click();
+    //cy.get('div.flex.gap-2 button:nth-child(1)').click();
+    //cy.get('[name="justificativa"]').type('asrfweqreqwrwer');
+    //cy.get('p-button[label="Emitir"] span.p-button-label').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(1) td:nth-child(2)').click();
+    cy.get('#pn_id_8-table div.p-checkbox-box').click();
+    cy.get('#pn_id_8-table div.p-highlight').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(2) td:nth-child(2)').click();
+    cy.get('#pn_id_8-table div.p-checkbox-box').click();
+    cy.get('tr[data-cy="entityTable"]:nth-of-type(3) span.font-bold').click();
+    cy.get('#pn_id_8-table th:nth-child(3)').click();
+    cy.get('#pn_id_8-table div.p-checkbox-box').click();
 })
 
 it.skip('9 - Consultar Pendências Fins Eleitorais / Emissão Certidão Negativa - Nada consta em tramitação', () => {
