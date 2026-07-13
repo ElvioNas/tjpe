@@ -61,7 +61,7 @@ cy.get('small.p-error').should('have.text', ' CPF inválido. ');
 
 
    cy.viewport(1920, 1080);
-    // cy.visit('https://homologacao-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
+
     //cy.visit('https://homologacao-certidoesunificadasadmin.app.tjpe.gov.br/') 
    cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/certidao')
     cy.visit('https://teste-certidoesunificadasadmin.app.tjpe.gov.br/')
